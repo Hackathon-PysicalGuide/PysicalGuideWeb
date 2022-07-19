@@ -1,31 +1,23 @@
-import styled from "styled-components";
-import { shadow } from "../lib/styleUtil";
-import '../App.css'
+import styled from "styled-components"
+import CategorySearch from "../components/CategorySearch"
+import MainLogo from "../components/MainLogo"
 
-const Container = styled.h2`
-    margin-top : 2rem;
+const Container = styled.div`
     position: absolute;
+    width: 80%;
     left 50%; transform: translate(-50%);
-    width : 80%;
-    height: 10rem;
-    display : flex;
-    align-items : center;
-    justify-content : center;
-    ${shadow[2]}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 `;
 
-const Logo = styled.p`
-    
-`;
 
 function Main() {
-    return (
+    return(
         <Container>
-            <Logo>
-                Pysical guide에 오신걸 환영합니다.
-            </Logo>
-
-            
+            <MainLogo/>
+            <CategorySearch/>
         </Container>
     )
 }

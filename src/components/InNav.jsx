@@ -2,7 +2,8 @@ import '../App.css'
 import { Link } from 'react-router-dom'
 import strength from '../img/strength.png'
 
-function Nav() {
+
+function InNav() {
     return(
         <div className="App">
             <nav class="navbar">
@@ -14,11 +15,12 @@ function Nav() {
                 </div>
                 <div className='navbar__menu'>
                     <li>
-                        <Link to="/login">
+                        <Link to="/logout">
                             <b>
-                                Login
+                                {localStorage.getItem('username')} 님 환영합니다
                             </b>
                         </Link>
+                        
                     </li>
                 </div>
             </nav>
@@ -26,4 +28,4 @@ function Nav() {
     )
 }
 
-export default Nav
+export default InNav

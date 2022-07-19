@@ -5,12 +5,21 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Main from './pages/Main';
 import Regist from './pages/Regist';
+import InNav from './components/InNav';
+import { useEffect } from 'react';
 
 function App() {
 
+  const Loginchk = () => {
+    return !!localStorage.getItem('username')
+  };
+
+
+  useEffect(() => {Loginchk()},[]);
+
   return (
     <div>
-      <Nav/>
+      {Loginchk() ? <InNav/> : <Nav/>}
       <Routes>
         <Route exact path='/' element={<Main/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -20,6 +29,7 @@ function App() {
     </div>
   )
 }
+
 
 
 export default App;
