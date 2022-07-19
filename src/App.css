@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'Happiness-Sans-Title';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Happiness-Sans-Title';
+}
+
+:root {
+  --text-color : #f0f4f5;
+  --background-color : #FFD990;
+  --accent-color : orange;
+  --icons-color : rgb(152,187,201);
+  --bodybackground-color : #FFFAE8;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 15px 12px;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.12), 0 1px rgba(0, 0, 0, 0.24);
+}
+
+body { 
+  margin: 0;
+  background-color: var(--bodybackground-color);
+}
+
+.navbar__logo i {
+  color: var(--accent-color);
+  font-size: calc(10px + 2vmin);
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding-left: 0;
+}
+
+.navbar__menu li {
+  padding: 8px 30px;
+  font-size: calc(10px + 0.7vmin);
+}
+
+.navbar__icons {
+  list-style: none;
+  display: flex;
+  color: var(--icons-color);
+  margin: 0;
+  padding-left: 0;
+}
+
+.navbar__icons li {
+  padding: 8px 12px;
+  margin: 0;
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+}
+
+.ShadowBox {
+  width: 500px;
+  box-shadow: rgba(0, 0, 0, 0.12);
+}
+
+.logowrap {
+  background-color : #FFD990;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logowrap .logo {
+  color: white;
+  font-family: 'Rajdhani';
+  font-size: 2.4rem;
+  letter-spacing: 5px;
+  text-decoration: none;
+}
+
+#Content {
+  background: white;
+  padding: 2rem;
+  height: auto;
+}
