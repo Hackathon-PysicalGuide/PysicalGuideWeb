@@ -10,7 +10,7 @@
 }
 
 :root {
-  --text-color : #f0f4f5;
+  --text-color : #000;
   --background-color : #FFD990;
   --accent-color : orange;
   --icons-color : rgb(152,187,201);
@@ -19,7 +19,7 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-color: var(--background-color);
   padding: 15px 12px;
@@ -35,6 +35,12 @@ body {
   color: var(--accent-color);
   font-size: calc(10px + 2vmin);
   padding-left: 0;
+}
+
+.navbar__logo img {
+  width: 1.75rem;
+  height: 1.75rem;
+  max-width: 100%;
 }
 
 a {

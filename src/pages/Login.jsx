@@ -3,24 +3,38 @@ import LoginButton from "../components/LoginButton";
 import InputLabel from "../components/InputLabel";
 import SignupButton from "../components/SignupButton";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from "react";
+
+import Ip from '../CommonIp';
 
 function Login() {
 
+    useEffect(() => {})
+
+    let navigate = useNavigate();
     return(
         <LoginCon title={"로그인"}>
             <InputLabel label="아이디" name="username" placeholder="아이디를 입력해주세요" id="idIn"/>
             <InputLabel label="비밀번호" name="password" placeholder="비밀번호를 입력해주세요" type="password" id="pwIn"/>
             <LoginButton onClick={() => {
-                console.log(document.getElementById('idIn').value,document.getElementById('pwIn').value)
-                axios.post('http://192.168.45.175:8080/user/sign-in',{
+                axios.post(Ip+"/user/sign-in",{
                     id: document.getElementById('idIn').value,
                     pw: document.getElementById('pwIn').value
                 }, {
                     headers: { "Content-Type": "application/json"},
                 }).then(function (response){
-                    console.log(response.data.userData.userId)
+                    localStorage.setItem('username',response.data.userData.userId);
+                    window.location.href = '/';
+                    
                 }).catch((error) => {
-                    console.log(error);
+                    if(error.response.status === 404){
+                        alert('아이디가 존재하지 않습니다.')
+                        navigate('/login')
+                    }else if(error.response.status === 400){
+                        alert('비밀번호가 틀렸습니다.')
+                        navigate('/login')
+                    }
                 })
             }}>로그인</LoginButton>
             <SignupButton to={'/regist'}>아직 회원이 아니신가요?</SignupButton>
