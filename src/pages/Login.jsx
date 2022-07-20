@@ -6,6 +6,8 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from "react";
 
+import Ip from '../CommonIp';
+
 function Login() {
 
     useEffect(() => {})
@@ -16,7 +18,7 @@ function Login() {
             <InputLabel label="아이디" name="username" placeholder="아이디를 입력해주세요" id="idIn"/>
             <InputLabel label="비밀번호" name="password" placeholder="비밀번호를 입력해주세요" type="password" id="pwIn"/>
             <LoginButton onClick={() => {
-                axios.post('http://101.101.211.153:8080/user/sign-in',{
+                axios.post(Ip+"/user/sign-in",{
                     id: document.getElementById('idIn').value,
                     pw: document.getElementById('pwIn').value
                 }, {

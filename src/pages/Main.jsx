@@ -1,6 +1,7 @@
 import styled from "styled-components"
-import CategorySearch from "../components/CategorySearch"
+import CategorySearchBoard from "../components/CategorySearchBoard";
 import MainLogo from "../components/MainLogo"
+import Write from "./Write";
 
 const Container = styled.div`
     position: absolute;
@@ -17,7 +18,8 @@ function Main() {
     return(
         <Container>
             <MainLogo/>
-            <CategorySearch/>
+            <Write/>
+            <CategorySearchBoard/>
         </Container>
     )
 }

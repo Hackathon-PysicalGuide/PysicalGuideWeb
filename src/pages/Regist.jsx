@@ -3,6 +3,7 @@ import InputLabel from "../components/InputLabel";
 import LoginButton from "../components/LoginButton";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import Ip from "../CommonIp";
 
 function Regist() {
 
@@ -18,7 +19,7 @@ function Regist() {
                         alert('비밀번호를 다시 확인해주세요.')
                         window.location.href = '/regist';
                     }
-                    axios.post('http://101.101.211.153:8080/user/sign-up',{
+                    axios.post(Ip+'/user/sign-up',{
                         id: document.getElementById('idIn').value,
                         pw: document.getElementById('pwIn').value
                     }, {

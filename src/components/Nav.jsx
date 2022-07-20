@@ -9,7 +9,7 @@ function Nav() {
                 <div class="navbar__logo">
                     <Link to='/'>
                         <img src={strength} alt=''></img>
-                        <i class="fas fa-blog">Pysical Guide</i>
+                        <i class="fas fa-blog">Physical Guide</i>
                     </Link>
                 </div>
                 <div className='navbar__menu'>

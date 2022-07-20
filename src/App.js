@@ -6,7 +6,10 @@ import Logout from './pages/Logout';
 import Main from './pages/Main';
 import Regist from './pages/Regist';
 import InNav from './components/InNav';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Show from './pages/Show';
+import axios from 'axios';
+import Ip from './CommonIp';
 
 function App() {
 
@@ -14,8 +17,21 @@ function App() {
     return !!localStorage.getItem('username')
   };
 
+  let [arr, setArr] = useState([]);
 
-  useEffect(() => {Loginchk()},[]);
+
+  useEffect(() => {
+      const fetchData = () => {
+          const get = axios.get(
+              Ip+'/manual/'
+          ).then((response) => {
+              setArr([])
+              setArr(response.data.list)
+          });
+      }
+      Loginchk()
+      fetchData();
+  },[]);
 
   return (
     <div>
@@ -25,6 +41,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/regist' element={<Regist/>}/>
         <Route path='/logout' element={<Logout/>}/>
+        <Route path='/category/:idx' element={<Show title={arr.title} content={arr.content} category={arr.category}/>}/>
       </Routes>
     </div>
   )
