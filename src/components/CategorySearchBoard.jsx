@@ -61,7 +61,7 @@ function CategorySearchBoard() {
                 </Title>
                 {arr.map((items) => (
                     <Link to={'/category/'+items.idx}>
-                        <Content>{items.category === 'upperBody' || items.category === 'upperbody' ? items.title : null}</Content>
+                        {items.category === 'upperBody' || items.category === 'upperbody' ? <Content> {items.title} </Content>: null}
                     </Link>
                 ))}
             </SearchTab>
@@ -72,7 +72,7 @@ function CategorySearchBoard() {
                 </Title>
                 {arr.map((items) => (
                     <Link to={'/category/'+items.idx}>
-                        <Content>{items.category === 'abs' ? items.title : null}</Content>
+                        {items.category === 'abs' ? <Content>{items.title}</Content>: null}
                     </Link>
                 ))}
             </SearchTab>
@@ -83,7 +83,7 @@ function CategorySearchBoard() {
                 </Title>
                 {arr.map((items) => (
                     <Link to={'/category/'+items.idx}>
-                        <Content>{items.category === 'lowerBody' || items.category === 'lowerbody' ? items.title : null}</Content>
+                        {items.category === 'lowerBody' || items.category === 'lowerbody' && items.title !== '' ? <Content>{items.title}</Content> : null}
                     </Link>
                 ))}
             </SearchTab>

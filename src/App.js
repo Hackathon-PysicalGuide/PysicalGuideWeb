@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 import Show from './pages/Show';
 import axios from 'axios';
 import Ip from './CommonIp';
+import Write from './pages/Write';
+
 
 function App() {
 
@@ -43,6 +45,7 @@ function App() {
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/category/:idx' element={<Show title={arr.title} content={arr.content} category={arr.category}/>}/>
       </Routes>
+
     </div>
   )
 }

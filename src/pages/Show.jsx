@@ -4,6 +4,7 @@ import { useLocation } from "react-router";
 import styled from "styled-components"
 import axios from 'axios'
 import Ip from '../CommonIp'
+import Write from "./Write";
 
 const View = styled.div`
     position: absolute;
@@ -74,7 +75,7 @@ function Show() {
         fetchData();
         Loginchk();
         setSave(param.pathname.split('/'))
-
+        console.log(param)
     },[])
     
     console.log()
@@ -98,6 +99,17 @@ function Show() {
             { Loginchk() ? <Formwrapper>
                 <TitleIn type={'text'} placeholder='제목' id="titlearea"/>
                 <ContentIn id="contentarea"/>
+                <Write onClick={
+                    axios.post(
+                        Ip+"/user/sign-in",{
+                            title : document.getElementById('titlearea'),
+                            content : document.getElementById('contentarea')
+                        }, {
+                            headers: { "Content-Type " : "application/json" },
+                        }).then(function (response) {
+                            window.location.href = '/';
+                        })
+                }/>
             </Formwrapper> : <h4>글 수정 기능은 로그인을 해야 사용 가능합니다.</h4> }
         </View>
     )

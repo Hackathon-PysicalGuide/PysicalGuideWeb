@@ -7,22 +7,34 @@ const Container = styled.div`
 `;
 
 const Btn = styled.a`
+    -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
     display: block;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    max-width: 180px;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 20px 30px;
 
+    color: #000;
+    box-shadow: #FFD990 0 0px 0px 2px inset;
 
-    background-color: #9abf7f;
-
-    box-shadow: 0px 4px 0px #87a86f;
-
-    &:active{
-        box-shadow: 0 0 #87a86f; background-color: #87a86f;
+    &:hover {
+        color: #000;
+        box-shadow: #FFD990 0 0px 0px 40px inset;
     }
 `;
 
-function Write() {
+
+
+function Write({ onClick }) {
     return (
         <Container>
-            <button>안녕하세요 버튼입니다.</button>
+            <Btn onClick={onClick}>글쓰기</Btn>
         </Container>
     )
 }
